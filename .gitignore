@@ -1,0 +1,10 @@
+# MkDocs build output
+/site/
+
+# Python
+.venv/
+__pycache__/
+
+# NOTE: docs/common-torizon/ is a committed snapshot for this test deployment.
+# In production it is a build artifact (regenerate via scripts/sync-external-docs.sh)
+# and would be git-ignored instead.

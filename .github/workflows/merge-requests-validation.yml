@@ -1,0 +1,34 @@
+name: Block Labeled PR Merges
+
+on:
+  pull_request:
+    types: [labeled, unlabeled, opened, edited, synchronize]
+
+jobs:
+  prevent-merge:
+    if: ${{ contains(github.event.pull_request.labels.*.name, 'freeze') }}
+    name: Check for freeze label
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check for label
+        run: |
+          echo "Pull request label prevents merging."
+          echo "Remove the freeze label to skip this check."
+          exit 1
+
+  backport:
+    name: Backport PR
+    runs-on: ubuntu-latest
+    if: github.event.pull_request.merged == true &&
+        (
+          (github.event.action == 'closed' && contains(github.event.pull_request.labels.*.name, 'backport-to-main')) ||
+          (github.event.action == 'labeled' && startsWith(github.event.label.name, 'backport-to-'))
+        )
+    steps:
+      - uses: actions/checkout@v4
+      - name: Backport
+        uses: korthout/backport-action@v3
+        with:
+          label_pattern: '^backport-to-(?<target>[^ ]+)$'
+          add_author_as_assignee: true
+          conflict_resolution: draft_commit_conflicts
