@@ -8,12 +8,12 @@ $ repo init -u https://git.toradex.com/toradex-manifest.git -b master -m common-
 $ repo sync -j 10
 ```
 
-> [!IMPORTANT]
+> IMPORTANT:
 > Until an official release of Common Torizon OS, only the `integration.xml` manifest is suitable for end-users to build. After an official release, users will be able to use the `default.xml` manifest.
 
 Note that `integration.xml` is a development manifest used internally and it might contain development features and thus be considered unstable.
 
-> [!IMPORTANT]
+> IMPORTANT:
 > Common Torizon OS is only available on the `master` branch.
 
 Alternatively, you can manually clone all layers one by one. Refer to the section [_Manual Setup_](#manual-setup) at the end of this document to learn how.
@@ -94,7 +94,7 @@ For flashing, there are two possible ways: use the helper script `flash-image.sh
     $ sudo ./bin/linux/x86_64/astra-update -c sl1680 -m 4gb -d lpddr4x -t emmc -i "$(cat astra-usbboot-images/sl1680_suboot/manifest.yaml | shyaml get-value id)"
     ```
 
-> [!IMPORTANT]
+> IMPORTANT:
 > For `Luna SL1680`, you'll need to replace the folder `astra-usbboot-images` with the one provided [here](https://artifacts.toradex.com/artifactory/common-torizon-extras-prod-frankfurt/luna-sl1680/astra-usbboot-images-winglet.tar.gz).
 > Just rename the current one something else, for instance `astra-usbboot-images-sl1680` and add the provided `astra-usbboot-images` in `usb-tool`
 > And if you'll need to flash Astra SL1680, you'll need to switch back to the original binaries, so keep that in mind!

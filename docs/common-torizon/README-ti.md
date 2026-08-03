@@ -9,7 +9,7 @@ $ repo sync -j 10
 ```
 We **strongly recommend** using the `default.xml` manifest. The `integration.xml` and `next.xml` are development manifests used internally and they might be unstable.
 `default.xml` is the manifest used for our releases, so they are reliable.  
-> [!IMPORTANT]  
+> IMPORTANT:  
 > Common Torizon OS is only available on the `master` branch.
 
 Alternatively, you can manually clone all layers one by one. Refer to the section _Manual Setup_ at the end of this document to learn how.

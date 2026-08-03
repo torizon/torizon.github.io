@@ -9,8 +9,8 @@ $ repo sync -j 10
 ```
 We **strongly recommend** using the `default.xml` manifest. The `integration.xml` and `next.xml` are development manifests used internally and they might be unstable.
 `default.xml` is the manifest used for our releases, so they are reliable.  
-> [!IMPORTANT]  
-> Common Torizon OS is only available on branches `scarthgap-7.x.y` or newer!
+> IMPORTANT:  
+> Common Torizon OS is only available on the `master` branch.
 
 Alternatively, you can manually clone all layers one by one. Refer to the section _Manual Setup_ at the end of this document to learn how.
 
@@ -75,7 +75,7 @@ $ git clone git://git.yoctoproject.org/poky -b scarthgap
   * Download `meta-intel`, `meta-torizon` and `meta-torizon-bsp`:
 ```bash
 $ git clone git://git.yoctoproject.org/meta-intel -b scarthgap
-$ git clone https://github.com/torizon/meta-torizon.git -b scarthgap-7.x.y
+$ git clone https://github.com/torizon/meta-torizon.git -b master
 $ git clone https://github.com/torizon/meta-torizon-bsp.git -b master
 ```
   * Download the Torizon layer dependencies:
